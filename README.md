@@ -1,10 +1,11 @@
 # Contributors 
 Natalie Turner, School of Social Work
 Terresa Tran, MSIM
+Honglam Van, Department of Mechanical Engineering
 
 # record_linkage_gui
 CSE 583 Entity Resolution and Record Linkage Toolkit
-Honglam Van, Department of Mechanical Engineering
+
 
 ## Resources
 
