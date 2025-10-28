@@ -2,10 +2,10 @@
 CSE 583 Entity Resolution and Record Linkage Toolkit
 
 ## Contributors 
-Natalie Turner, School of Social Work
-Terresa Tran, MSIM
-Honglam Van, Department of Mechanical Engineering
-Todd Nobles, Sociology 
+- Natalie Turner, School of Social Work
+- Terresa Tran, MSIM
+- Honglam Van, Department of Mechanical Engineering
+- Todd Nobles, Sociology 
 
 ## Resources
 
