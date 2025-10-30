@@ -1,6 +1,10 @@
-user_story
+User Stories
 
-# Todd 
+- Joe is a grad student who is working on digitizing and transcribing scanned historical forms. They are not very technical and used a very bad OCR technology so need to be able to view and edit the text extracted from a lot of images very quickly. 
+
+- Sammy is a professor who has already used some computer vision models so their text was read in quite cleanly. They want the ability to review lots of fields at once since they won't have to make very many edits. 
+
+- Bob is a research assistant with no experience coding. They've been asked by a professor to check that a set of information was extracted from the images correctly. They value an interface that they don't need to work with filepaths or any code. 
 
 
 
