@@ -40,7 +40,7 @@ Gino is a historian. They want to easily digitize photocopies of old documents. 
 
 # Julia 
 
-
+Emily is a project coordinator overseeing several student researchers who are each responsible for transcribing different batches of scanned historical documents. She doesn’t edit text herself but needs to track progress, check data quality, and ensure consistency across the team.
 
 
 
