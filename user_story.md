@@ -6,6 +6,10 @@ User Stories
 
 - Bob is a research assistant with no experience coding. They've been asked by a professor to check that a set of information was extracted from the images correctly. They value an interface that they don't need to work with filepaths or any code. 
 
+- Sarah is a research assistant who only owns a chromebook and can't run scripts locally. They've been tasked with checking that a set of information was extracted from images correctly. They are a new computer user but excited about getting into research. 
+
+- Oliver is an administrator for a government office. They're tasked with identifying most likely matches between their list of unemployment claims and a database of tax returns from last year. For this example they have no concerns about data privacy. 
+
 
 
 
