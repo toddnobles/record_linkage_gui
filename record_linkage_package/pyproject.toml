@@ -1,0 +1,19 @@
+[project]
+name = "record_linkage_package"
+version = "0.0.1"
+authors = [
+  {name="Todd Nobles", email="tnobles@uw.edu"},{ name="Honglam Van", email="honglamv7@gmail.com"},{name="Natalie Turner", email="nturner2@uw.edu"}, {name="Terresa Tran", email="tran10@uw.edu"},{name="Julia Zhu", email = "qzhu35@uw.edu"}
+]
+description = "A package for Record Linkage GUI project"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/toddnobles/record_linkage_gui"
+Issues = "https://github.com/toddnobles/record_linkage_gui/issues"
