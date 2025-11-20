@@ -2,7 +2,7 @@
 name = "record_linkage_package"
 version = "0.0.1"
 authors = [
-  { name="Honglam Van", email="honglamv7@gmail.com" },
+  {name="Todd Nobles", email="tnobles@uw.edu"},{ name="Honglam Van", email="honglamv7@gmail.com"},{name="Natalie Turner", email="nturner2@uw.edu"}, {name="Terresa Tran", email="tran10@uw.edu"},{name="Julia Zhu", email = "qzhu35@uw.edu"}
 ]
 description = "A package for Record Linkage GUI project"
 readme = "README.md"
