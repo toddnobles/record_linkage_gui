@@ -4,10 +4,13 @@ import numpy as np
 
 st.title("Record Linkage GUI")
 
-uploaded_files = st.file_uploader('Upload a CSV', type="csv", accept_multiple_files=True)
-
 def load_csv():
-    if uploaded_files:
-        for uploaded_file in uploaded_files:
-            df = pd.read_csv(uploaded_file)
-            st.write(df.head())
+    uploaded_csv = st.file_uploader('Upload a CSV', type="csv", accept_multiple_files=False)
+    if uploaded_csv:
+        return pd.read_csv(uploaded_csv)
+    else:
+        return None
+    
+df = load_csv()
+if df is not None:
+    st.write(df)
