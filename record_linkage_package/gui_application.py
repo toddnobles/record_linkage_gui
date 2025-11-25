@@ -14,3 +14,14 @@ def load_csv():
 df = load_csv()
 if df is not None:
     st.write(df)
+else:
+    st.warning("Please upload a csv file.")
+
+
+def upload_image_folder():
+    image_folder = st.file_uploader("Upload folder of images", accept_multiple_files=True, type=["jpg","jpeg","png"])
+    if image_folder:
+        for image_file in image_folder:
+            st.image(image_file)
+
+upload_image_folder()
