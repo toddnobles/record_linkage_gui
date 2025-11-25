@@ -1,0 +1,9 @@
+name: recordlinkage
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - numpy
+  - pytest
+  - pytest-cov
