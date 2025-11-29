@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - pandas
-  - numpy
   - pytest
   - pytest-cov
+  - streamlit
+  - PIL
