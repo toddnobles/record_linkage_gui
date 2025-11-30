@@ -7,4 +7,4 @@ dependencies:
   - pytest
   - pytest-cov
   - streamlit
-  - PIL
+  - pillow
