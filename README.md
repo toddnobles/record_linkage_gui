@@ -1,4 +1,4 @@
-# record_linkage_gui
+# Record Linkage Toolkit
 CSE 583 Entity Resolution and Record Linkage Toolkit
 
 ## Contributors 
@@ -8,24 +8,7 @@ CSE 583 Entity Resolution and Record Linkage Toolkit
 - Todd Nobles, Sociology
 - Julia Zhu, MSIM
 
-## Resources
+## Project Description
+The only tool currently in this toolkit is intended for users working to digitize documents using OCR or computer vision models and who need a way to compare the extracted text to the original images. Additionally, it allows users to make edits to the extracted data as they're reviewing and save these edits to a cleaned version of their data set. 
 
-
-### Potential datasets
-- https://gatesopenresearch.org/articles/8-36
-
-- https://www.pseudopeople.org/
-
-
-### Example R 
-[Loom recording](https://www.loom.com/share/30cd84444341433492a7a40150a41824?sid=310023e0-429f-4c50-a3c5-49c512780c94). This shows an earlier version of the OCR hand checking GUI. 
-
-### Record Linkage
-- https://github.com/OlivierBinette/Awesome-Entity-Resolution?tab=readme-ov-file 
-- It doesn't really matter which algorithm we use. Splink is the best option in Python at the moment. 
-
-## Tentative project plan for discussion
-- Hand correction gui. Data will be archive forms that Todd has copies of. 
-- GUI for comparing potential matches and selecting best match by the user. 
-
- 
+Future tools will assist users who are trying to link records between datasets and need a way to speed up and reduce the errors in the process of performing hand matches or adjudicating between potential matches. 
