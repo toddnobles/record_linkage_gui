@@ -49,6 +49,11 @@ def render_viewer(image_ref_col, image_map, columns_to_check):
                 for col in columns_to_check:
                     st.session_state.all_edits[selected_item_val][col] = str(df.at[row_index, col])
 
+            # Ensure all columns exist (handles case where columns_to_check changes)
+            for col in columns_to_check:
+                if col not in st.session_state.all_edits[selected_item_val]:
+                    st.session_state.all_edits[selected_item_val][col] = str(df.at[row_index, col])
+
             # Show each column as a vertical text input. The alternate here could be to 
             # use the st.data_editor but that only displays a horizontal row of a dataframe which isn't as visually clear. 
             for col in columns_to_check:
