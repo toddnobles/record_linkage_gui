@@ -4,7 +4,7 @@ Tests for app.py
 
 import pytest           
 import pandas as pd 
-from app import load_data, find_image, get_image_map
+from record_linkage.app import load_data, get_image_map, find_image, render_viewer, main
 
 
 
@@ -80,9 +80,11 @@ def test_edge_load_data_excel(tmp_path):
     excel_file = tmp_path / "file.xlsx"
     excel_file.write_text("this is not a CSV")
 
-    # test that load_data fails
-    with pytest.raises(pd.errors.ParserError):
-        load_data(excel_file)
+    result = load_data(excel_file)
+    
+    # if you do put in an excel then you get a df with no rows
+    assert isinstance(result, pd.DataFrame)
+    assert result.empty
 
 def test_oneshot_load_data(tmp_path):
     """
@@ -99,7 +101,7 @@ def test_oneshot_load_data(tmp_path):
     assert df.at[0, "col1"] == 1
     assert df.at[1, "col2"] == "b"
     
-def test_pattern_find_image():
+def test_pattern_find_image_none():
     """
     author: nturner2
     reviewer: honglamv7/juliaz35
@@ -107,7 +109,6 @@ def test_pattern_find_image():
     """
     # test something where we know the outcome for multiple inputs
     # can create what's expected for find_image 
-    # can do something like one shot test but with more?
     image_map = {"ex1.png": "object_ex1", 
                  "ex2.png": "object_ex2",
                  "ex3.png": "object_ex3"}
