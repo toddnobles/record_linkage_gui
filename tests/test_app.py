@@ -24,8 +24,23 @@ def test_find_image():
     """
     img_map = {"img1.jpg":"image 1", "img2.png":"image 2", "img3.png":"image 3"}
 
-    assert find_image("img1.png", img_map) == "image 1"
+    assert find_image("img1.jpg", img_map) == "image 1"
 
+def edge_test_find_image_none():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: edge test
+    Test if an empty image map returns None
+    """
+    img_map = {}
 
+    assert find_image("some_image.png",img_map) is None
 
-
+def pattern_test():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: pattern test
+    Test if image selected is in image map
+    """
