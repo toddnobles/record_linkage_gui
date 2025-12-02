@@ -1,4 +1,8 @@
+import types
+import pandas as pd
+import pytest
 
+from record_linkage.app import load_data, get_image_map
 
 def test_smoke_get_image_map():
     """
