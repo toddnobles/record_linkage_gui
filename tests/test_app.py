@@ -1,5 +1,6 @@
 import pytest
 import pandas as pd
+import types
 
 from record_linkage.app import load_data, get_image_map, find_image, render_viewer, main
 
