@@ -36,10 +36,20 @@ def test_edge_get_image_duplicate_names():
     reviewers: nturner27, juliaz35
     Testing duplicated file names in uploaded images are de-duplicated
     """
-    files = [{"name": "a.jpg"},{"name": "a.jpg"}]
+    # create mock object that has .name
+    class MockImg:
+        def __init__(self, name):
+            self.name = name
+
+    files = [MockImg("a.jpg"), MockImg("a.jpg")]
+
     result = get_image_map(files)
 
-    assert list(result.keys()) == ["a.jpg"]
+    # Check that keys are unique
+    assert len(result) == 2
+    assert list(result.keys())[0].startswith("a") 
+    assert list(result.keys())[1].startswith("a")
+    assert list(result.keys())[0] != list(result.keys())[1]
 
 def test_pattern_find_image():
     """
