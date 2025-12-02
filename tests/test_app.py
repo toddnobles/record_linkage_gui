@@ -1,15 +1,31 @@
 import pytest
 import pandas as pd
 from io import BytesIO
-from record_linkage.app import load_data, main
+from record_linkage.app import load_data, find_image
 
 def csv_upload_test():
     """
     author: tttran01
     reviewer: toddnobles
     category: smoke test
+    Test if program will crash when given a small file
     """
-    csv_bytes = BytesIO(b"col1,col2\nA,1\n") # creates a fake local binary file mimiking a csv file
+    csv_bytes = BytesIO(b"col1,col2\nA,1\n") # creates a fake local binary file simulating a csv file
     df = load_data(csv_bytes)
 
     assert df is not None
+
+def test_find_image():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: one shot test
+    Test if image selected is in image map
+    """
+    img_map = {"img1.jpg":"image 1", "img2.png":"image 2", "img3.png":"image 3"}
+
+    assert find_image("img1.png", img_map) == "image 1"
+
+
+
+
