@@ -6,10 +6,7 @@ from PIL import Image
 
 st.title("Record Linkage GUI")
 st.sidebar.header("Controls")
-
-if "zoom" not in st.session_state: 
-    st.session_state.zoom = 1.0
-
+st.sidebar.subheader("Column Selection")
 
 
 def load_csv():
@@ -22,8 +19,14 @@ def load_csv():
 df = load_csv()
 if df is not None:
     st.write(df)
+    key_column = st.sidebar.selectbox("Key column for image linkage:", df.columns)
+    select_columns = st.sidebar.multiselect("Select columns you would like to view:", 
+                                            df.columns, 
+                                            default = [column for column in df.columns if column != key_column])
 else:
     st.warning("Please upload a csv file.")
+
+
 
 
 
@@ -37,3 +40,5 @@ def upload_image_files():
             image_zoom(image, mode="scroll", size=(int(image_width/2), int(image_height/2)), keep_aspect_ratio=False, zoom_factor=4.0, increment=0.2)
 
 upload_image_files()
+
+
