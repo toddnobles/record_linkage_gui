@@ -1,7 +1,9 @@
 import pytest
+import pandas as pd
+
 from record_linkage.app import load_data, get_image_map, find_image, render_viewer, main
 
-def smoke_test_load_data(tmp_path):
+def test_smoke_load_data(tmp_path):
     """
     author: honglamv7
     reviewers: nturner27, juliaz35
@@ -18,7 +20,7 @@ def smoke_test_load_data(tmp_path):
     assert isinstance(df, pd.DataFrame)
 
 
-def one_shot_find_page():
+def test_one_shot_find_image():
     """
     author: honglamv7
     reviewers: nturner27, juliaz35
@@ -26,9 +28,9 @@ def one_shot_find_page():
     """
 
     m = {"a.jpg": 123}
-    assert find_image("b.jpg", m) == None
+    assert find_image("b.jpg", m) is None
 
-def edge_test_get_image_duplicate_names():
+def test_edge_get_image_duplicate_names():
     """
     author: honglamv7
     reviewers: nturner27, juliaz35
@@ -39,7 +41,7 @@ def edge_test_get_image_duplicate_names():
 
     assert list(result.keys()) == ["a.jpg"]
 
-def pattern_test_find_image():
+def test_pattern_find_image():
     """
     author: honglamv7
     reviewers: nturner27, juliaz35
@@ -51,4 +53,4 @@ def pattern_test_find_image():
     }
     assert find_image("a.jpg", image_map) == "imgA"
     assert find_image("b.jpg", image_map) == "imgB"
-    assert find_image("c.jpg", image_map) == None
+    assert find_image("c.jpg", image_map) is None
