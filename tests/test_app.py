@@ -49,7 +49,16 @@ def pattern_test():
     category: pattern test
     Test if image selected is in image map
     """
-    
+    sample_data = BytesIO(b"Name,StrCol,MissingCol\nAlbert,12345,\n")
+    sample_df = load_data(sample_data)
+
+    expected_df = pd.DataFrame({
+        "Name": ["Albert"],
+        "NumCol": [12345],
+        "MissingCol": [pd.NA]
+    })
+
+    assert sample_df == expected_df
 
 # Honglam Tests:
 def test_smoke_load_data(tmp_path):
