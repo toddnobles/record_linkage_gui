@@ -7,7 +7,6 @@ import pandas as pd
 from io import BytesIO
 from record_linkage.app import load_data, get_image_map, find_image, render_viewer, main
 
-# Terresa Tests:
 def csv_upload_test():
     """
     author: tttran01
@@ -47,7 +46,7 @@ def pattern_test():
     author: tttran01
     reviewer: toddnobles
     category: pattern test
-    Test if image selected is in image map
+    Test if sample data uploaded to app matches an expected outcome
     """
     sample_data = BytesIO(b"Name,StrCol,MissingCol\nAlbert,12345,\n")
     sample_df = load_data(sample_data)
@@ -60,7 +59,6 @@ def pattern_test():
 
     assert sample_df == expected_df
 
-# Honglam Tests:
 def test_smoke_load_data(tmp_path):
     """
     author: honglamv7
