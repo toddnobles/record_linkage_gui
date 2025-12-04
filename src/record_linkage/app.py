@@ -10,6 +10,13 @@ def load_data(csv_file):
 
 def get_image_map(uploaded_images):
     """Creates a dictionary mapping filenames to image objects."""
+    names = [img.name for img in uploaded_images]
+    if len(names) != len(set(names)):
+        dups = names[:]
+        for elts in set(names):
+            dups.remove(elts)
+        raise ValueError(f"Duplicate file name {dups}. Please change file name.")
+    
     return {img.name: img for img in uploaded_images}
 
 def find_image(filename, image_map):
@@ -131,6 +138,12 @@ def main():
     )
     if not uploaded_images:
         st.warning("Please upload images to proceed.")
+        return
+    
+    try: 
+        image_map = get_image_map(uploaded_images)
+    except ValueError as e: 
+        st.error(str(e))
         return
 
     image_map = get_image_map(uploaded_images)
