@@ -80,7 +80,7 @@ def render_viewer(image_ref_col, image_map, columns_to_check):
                 rotation_angle = st.selectbox("Rotate Image", [0, 90, 180, 270], index=0)
                 image = Image.open(image_file)
                 rotated = image.rotate(-rotation_angle, expand=True)
-                st.image(rotated, use_container_width=True)
+                st.image(rotated) #, width="stretch")
             else:
                 st.warning(f"Could not find image for: '{search_filename}'")
 
