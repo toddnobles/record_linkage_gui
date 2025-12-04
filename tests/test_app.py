@@ -1,8 +1,63 @@
+"""
+Tests for app.py 
+"""
+
 import pytest
 import pandas as pd
-import types
-
+from io import BytesIO
 from record_linkage.app import load_data, get_image_map, find_image, render_viewer, main
+
+def csv_upload_test():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: smoke test
+    Test if program will crash when given a small file
+    """
+    csv_bytes = BytesIO(b"col1,col2\nA,1\n") # creates a fake local binary file simulating a csv file
+    df = load_data(csv_bytes)
+
+    assert df is not None
+
+def test_find_image():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: one shot test
+    Test if image selected is in image map
+    """
+    img_map = {"img1.jpg":"image 1", "img2.png":"image 2", "img3.png":"image 3"}
+
+    assert find_image("img1.jpg", img_map) == "image 1"
+
+def edge_test_find_image_none():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: edge test
+    Test if an empty image map returns None
+    """
+    img_map = {}
+
+    assert find_image("some_image.png",img_map) is None
+
+def pattern_test():
+    """
+    author: tttran01
+    reviewer: toddnobles
+    category: pattern test
+    Test if sample data uploaded to app matches an expected outcome
+    """
+    sample_data = BytesIO(b"Name,StrCol,MissingCol\nAlbert,12345,\n")
+    sample_df = load_data(sample_data)
+
+    expected_df = pd.DataFrame({
+        "Name": ["Albert"],
+        "NumCol": [12345],
+        "MissingCol": [pd.NA]
+    })
+
+    assert sample_df == expected_df
 
 def test_smoke_load_data(tmp_path):
     """
@@ -65,9 +120,7 @@ def test_pattern_find_image():
     assert find_image("a.jpg", image_map) == "imgA"
     assert find_image("b.jpg", image_map) == "imgB"
     assert find_image("c.jpg", image_map) is None
-"""
-Tests for app.py 
-"""
+
 
 
 def test_oneshot_get_image_map_single_image():
@@ -123,6 +176,9 @@ def test_pattern_get_image_map_multiple_images(image_names):
     """
     # Build fake uploaded image objects with .name
     uploaded_images = [types.SimpleNamespace(name=name) for name in image_names]
+
+    # Not in here should get None
+    assert find_image("ex4.png", image_map) is None
 
     image_map = get_image_map(uploaded_images)
 
