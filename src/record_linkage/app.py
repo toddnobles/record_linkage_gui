@@ -12,7 +12,10 @@ def get_image_map(uploaded_images):
     """Creates a dictionary mapping filenames to image objects."""
     names = [img.name for img in uploaded_images]
     if len(names) != len(set(names)):
-        raise ValueError("Duplicate file name. Please change file name.")
+        dups = names[:]
+        for elts in set(names):
+            dups.remove(elts)
+        raise ValueError(f"Duplicate file name {dups}. Please change file name.")
     
     return {img.name: img for img in uploaded_images}
 
