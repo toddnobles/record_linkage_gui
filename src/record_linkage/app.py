@@ -1,4 +1,21 @@
-"""Streamlit app for CSV data cleaning and image viewing."""
+"""Streamlit app for CSV data cleaning and image viewing.
+
+Purpose:
+    To allow users to check that data in a CSV matches the corresponding images,
+    edit any incorrect entries directly in the app, and save a cleaned dataset.
+
+Users can upload a CSV and images, map filenames to CSV rows, view each
+record alongside its image, make edits in the UI, and download the updated CSV.
+
+Functions:
+    load_data(csv_file): Load a CSV into a pandas DataFrame.
+    get_image_map(uploaded_images): Map uploaded images by filename.
+    find_image(filename, image_map): Retrieve an image from the map.
+    render_viewer(image_ref_col, image_map, columns_to_check): Render the
+        Streamlit viewer for editing CSV alongside images.
+    main(): Run the Streamlit app.
+
+"""
 
 import pandas as pd
 import streamlit as st
@@ -10,12 +27,32 @@ from PIL import Image
 def load_data(csv_file):
     """Read the CSV file.
 
-    Cached so we don't reload the dataframe on every interaction.
+    Args:
+        csv_file: The CSV file you want to load.
+
+    Returns:
+        pandas.DataFrame: The contents of the CSV file.
+
+    Notes:
+        This function is cached so the CSV is not re-read on every interaction
+        in the UI.
+
     """
     return pd.read_csv(csv_file)
 
 def get_image_map(uploaded_images):
-    """Create a dictionary mapping filenames to image objects."""
+    """Create a dictionary mapping filenames to image objects.
+
+    Args:
+        uploaded_images (list): A list of uploaded image objects.
+
+    Returns:
+        dict: A dictionary mapping each image's filename to the image object.
+
+    Raises:
+        ValueError: If there are duplicate filenames in `uploaded_images`.
+
+    """
     names = [img.name for img in uploaded_images]
     if len(names) != len(set(names)):
         dups = names[:]
@@ -26,15 +63,35 @@ def get_image_map(uploaded_images):
     return {img.name: img for img in uploaded_images}
 
 def find_image(filename, image_map):
-    """Search for a filename in the map and returns the image object or None."""
+    """Search for a filename in the map and returns the corresponding image object.
+
+    Args:
+        filename (str): The name of the image to search for.
+        image_map (dict): A dictionary mapping filenames to image objects.
+
+    Returns:
+        object or None: The image object corresponding to `filename`, or
+        None if the filename is not in the map.
+
+    """
     return image_map.get(filename, None)
 
 def render_viewer(image_ref_col, image_map, columns_to_check):
-    """Render the viewer section of the app.
+    """Render the app viewer showing extracted data alongside its source image.
 
-    Displays extracted data alongside its source image. Takes the image reference
-    column name, the mapping created by the get_image_map function, and
-    a list of columns to check/edit supplied by user within the main() function.
+    Args:
+        image_ref_col (str): Name of the column in the DataFrame
+            that references image filenames.
+        image_map (dict): Dictionary mapping filenames to image objects
+            (from `get_image_map`).
+        columns_to_check (list of str): List of column names that the user can
+            review and edit.
+
+    Notes:
+        Displays extracted data alongside its source image. Takes the image reference
+        column name, the mapping created by the get_image_map function, and
+        a list of columns to check/edit supplied by user within the main() function.
+
     """
     st.divider()
     st.header("Viewer")
@@ -125,7 +182,22 @@ def render_viewer(image_ref_col, image_map, columns_to_check):
 
 # ====== Main App =======
 def main():
-    """Run the Streamlit app for CSV and image checking."""
+    """Run the Streamlit app for CSV and image checking.
+
+    This function orchestrates the app workflow:
+        1. Upload a CSV file and store it in session.
+        2. Configure the mapping by selecting the image reference column and
+        columns to check.
+        3. Upload images and create a mapping from filenames to image objects.
+        4. Render the viewer section to display and edit data alongside images.
+
+    Notes:
+        - Stores the DataFrame in `st.session_state.df`.
+        - Stores the uploaded file name in `st.session_state.uploaded_file_name`.
+        - Handles duplicate filenames in the uploaded images.
+        - Uses other functions: `load_data`, `get_image_map`, and `render_viewer`.
+
+    """
     st.set_page_config(page_title="CSV Image Viewer", layout="wide")
     st.title("Record Cleaning and Extraction Checking")
 

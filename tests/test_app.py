@@ -1,4 +1,16 @@
-"""Tests for app.py."""
+"""Tests for app.py.
+
+Purpose:
+    Verify that core functions (load_data, get_image_map, find_image) and
+    the app UI behave correctly. Includes smoke, edge, one-shot, and pattern
+    tests for CSV loading, image mapping, data editing, and application
+    workflow.
+
+Notes:
+    - Stores author, reviewer, and category metadata in each test docstring,
+    per HW 3 instructions.
+
+"""
 
 import types
 from io import BytesIO
