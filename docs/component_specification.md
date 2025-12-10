@@ -23,4 +23,4 @@ These are the components of the data checking portion of the record linkage tool
 - Upload file containing data
 - Select columns users want to check for data cleaning
 - Upload image for data comparison
-- Edit data fields to matches image
+- Edit data fields to match image
