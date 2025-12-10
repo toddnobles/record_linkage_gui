@@ -6,7 +6,7 @@ CSE 583 Entity Resolution and Record Linkage Toolkit
 - Terresa Tran, MSIM. Contributions: application script, test development
 - Honglam Van, Department of Mechanical Engineering
 - Todd Nobles, Department of Sociology. Contributions: project conceptualization, project administration, documentation, test development, writing application script 
-- Julia Zhu, MSIM
+- Julia Zhu, MSIM. Contributions: test development, documentation
 
 ## Project Description
 This toolkit is designed for users working to digitize documents using OCR or computer vision models and who need a way to compare the extracted text to the original images. Additionally, it allows users to make edits to the extracted data as they're reviewing and save these edits to a cleaned version of their data set.
@@ -36,6 +36,7 @@ The project has the following structure:
       - |- functional_specification.md
       - |- component_specification.md
       - |- Record Linkage Demo.mp4
+      - |- Record Linkage Final Presentation.pdf
    - |- .github
       - |- workflows
         - |- testsuite.yml
