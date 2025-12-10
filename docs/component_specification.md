@@ -19,3 +19,8 @@ These are the components of the data checking portion of the record linkage tool
     - Ability to export a csv with any changes made using the GUI
     - A log of the edits made. This could be done by us creating a database on the backend when a user uploads the csv and logging edits to it. Open to other ideas. 
 
+### Preliminary Plan: List of Tasks
+- Upload file containing data
+- Select columns users want to check for data cleaning
+- Upload image for data comparison
+- Edit data fields to matches image
