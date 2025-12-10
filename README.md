@@ -5,7 +5,7 @@ CSE 583 Entity Resolution and Record Linkage Toolkit
 - Natalie Turner, School of Social Work
 - Terresa Tran, MSIM
 - Honglam Van, Department of Mechanical Engineering
-- Todd Nobles, Sociology
+- Todd Nobles, Department of Sociology. Contributions: project conceptualization, project administration, test development, writing application script 
 - Julia Zhu, MSIM
 
 ## Project Description
@@ -29,10 +29,12 @@ The project has the following structure:
       - |- test_app.py
       - |- test_data
         - |- sample_data.csv
+        - |- 100V1274_no_back.png
+        - |- 100V1276_no_back.png
    - |- docs
       - |- user_story.md
-      - |- use_cases.md
-      - |- components.md
+      - |- functional_specification.md
+      - |- component_specification.md
       - |- Record Linkage Demo.mp4
    - |- .github
       - |- workflows
