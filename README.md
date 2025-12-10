@@ -2,10 +2,10 @@
 CSE 583 Entity Resolution and Record Linkage Toolkit
 
 ## Contributors 
+- Todd Nobles, Department of Sociology. Contributions: project conceptualization, project administration, test development, writing application script 
 - Natalie Turner, School of Social Work. Contributions: project administration, documentation and style, test development, CI configuration
+- Honglam Van, Department of Mechanical Engineering. Contributions: Test development, initial package structure set up, environment set up, documentation
 - Terresa Tran, MSIM. Contributions: application script, test development
-- Honglam Van, Department of Mechanical Engineering
-- Todd Nobles, Department of Sociology. Contributions: project conceptualization, project administration, documentation, test development, writing application script 
 - Julia Zhu, MSIM. Contributions: test development, documentation
 
 ## Project Description
